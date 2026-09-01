@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-indigo: #4F46E5;
+  --color-indigo-dark: #3730A3;
+  --color-indigo-light: #EEF2FF;
+  --color-ink: #111827;
+  --color-ink-soft: #1F2937;
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
+  --color-border-strong: #D1D5DB;
+  --color-surface: #F9FAFB;
+  --color-green-excellent: #22C55E;
+  --color-green-good: #86EFAC;
+  --color-yellow-moderate: #FCD34D;
+  --color-red-poor: #EF4444;
+  --color-blue-stress: #3B82F6;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { font-family: var(--font-sans); }
+.font-mono { font-family: var(--font-mono); }
+
+/* leaflet */
+.leaflet-container { font-family: var(--font-sans); background: #E8EEF6; }
+.leaflet-control-attribution { font-size: 10px !important; opacity: 0.7; }
+
+/* custom scroll */
+.scroll-thin::-webkit-scrollbar { width: 4px; height: 4px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 999px; }
+
+/* pulsing */
+@keyframes ripple {
+  0% { transform: scale(0.6); opacity: 0.8; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+@keyframes pulse-dot {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.92); opacity: 0.85; }
+}
+@keyframes drift {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
