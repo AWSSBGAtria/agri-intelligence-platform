@@ -25,6 +25,18 @@
 /* leaflet */
 .leaflet-container { font-family: var(--font-sans); background: #E8EEF6; }
 .leaflet-control-attribution { font-size: 10px !important; opacity: 0.7; }
+.leaflet-tooltip {
+  background: #111827 !important;
+  color: white !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 12px !important;
+  padding: 8px 10px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.22) !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+}
+.leaflet-tooltip-top:before { border-top-color: #111827 !important; }
+.leaflet-tooltip-bottom:before { border-bottom-color: #111827 !important; }
 
 /* custom scroll */
 .scroll-thin::-webkit-scrollbar { width: 4px; height: 4px; }
