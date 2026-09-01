@@ -23,6 +23,23 @@ function FitBounds({ bbox }: { bbox: [number,number,number,number] }){
   return null
 }
 
+function ZoomControls(){
+  const map = useMap()
+  return (
+    <div className="absolute left-4 top-4 z-[400] flex flex-col gap-2.5">
+      <div className="rounded-2xl overflow-hidden border border-white/80 shadow-lg">
+        <button onClick={()=>map.zoomIn()} className="size-10 grid place-items-center bg-white hover:bg-[#F9FAFB] text-[#111827] font-bold text-lg leading-none" aria-label="Zoom in">+</button>
+        <div className="h-px bg-[#E5E7EB]" />
+        <button onClick={()=>map.zoomOut()} className="size-10 grid place-items-center bg-white hover:bg-[#F9FAFB] text-[#111827] font-bold text-lg leading-none" aria-label="Zoom out">−</button>
+      </div>
+      <div className="hidden sm:grid place-items-center size-10 rounded-2xl bg-white border border-[#E5E7EB] shadow text-[#111827]" title="North">
+        <span className="text-[11px] font-black tracking-widest">N</span>
+        <span className="text-[9px] -mt-1">▲</span>
+      </div>
+    </div>
+  )
+}
+
 function ndviColor(v:number){
   if(v<0.3) return '#FEF3C7'
   if(v<0.45) return '#86EFAC'
@@ -151,19 +168,8 @@ export default function MapView({ site, layers, onBlockSelect, selected }: Props
           </Marker>
         ))}
 
+        <ZoomControls />
       </MapContainer>
-
-      <div className="absolute left-4 top-4 z-[400] flex flex-col gap-2.5">
-        <div className="rounded-2xl overflow-hidden border border-white/80 shadow-lg">
-          <button className="size-10 grid place-items-center bg-white hover:bg-[#F9FAFB] text-[#111827] font-bold text-lg leading-none">+</button>
-          <div className="h-px bg-[#E5E7EB]" />
-          <button className="size-10 grid place-items-center bg-white hover:bg-[#F9FAFB] text-[#111827] font-bold text-lg leading-none">−</button>
-        </div>
-        <div className="hidden sm:grid place-items-center size-10 rounded-2xl bg-white border border-[#E5E7EB] shadow text-[#111827]" title="North">
-          <span className="text-[11px] font-black tracking-widest">N</span>
-          <span className="text-[9px] -mt-1">▲</span>
-        </div>
-      </div>
 
       <div className="absolute left-4 bottom-4 z-[400] flex flex-col gap-2.5">
         <div className="flex items-center gap-2 bg-white/95 backdrop-blur rounded-full border border-[#E5E7EB] px-3 py-1.5 shadow">
@@ -175,33 +181,6 @@ export default function MapView({ site, layers, onBlockSelect, selected }: Props
         </div>
         <div className="hidden sm:flex items-center gap-1.5 bg-[#111827] text-white rounded-full px-3.5 py-1.5 text-[11px] font-medium shadow">
           <span className="size-1.5 rounded-full bg-[#22C55E] animate-pulse" /> {site.meta.latLon} • WGS 84 / EPSG:4326
-        </div>
-      </div>
-
-      <div className="absolute left-4 bottom-[84px] sm:bottom-16 z-[400] hidden sm:block">
-        <div className="bg-white rounded-2xl border border-[#E5E7EB] shadow-xl overflow-hidden w-[200px]">
-          <div className="px-3 py-2 flex items-center justify-between border-b border-[#E5E7EB] bg-[#F9FAFB]">
-            <span className="text-[10px] font-extrabold tracking-[0.08em] text-[#111827]">{site.id==='gkvk' ? 'ZOOMED INSET • GKVK CAMPUS' : 'ZOOMED INSET • GUDUR MANDAL'}</span>
-            <span className="text-[10px] font-bold text-[#4F46E5]">1 km</span>
-          </div>
-          <div className="h-[118px] relative bg-[#E8EEF6] overflow-hidden">
-            <div className="absolute inset-0 opacity-20" style={{backgroundImage:'linear-gradient(#D1D5DB 1px, transparent 1px), linear-gradient(90deg, #D1D5DB 1px, transparent 1px)', backgroundSize:'18px 18px'}} />
-            <div className="absolute left-[32%] top-[28%] w-[42%] h-[38%] border-2 border-[#EF4444] bg-[#EF4444]/10 shadow-[0_0_0_2px_white]" />
-            <div className="absolute left-[36%] top-[32%] grid grid-cols-2 gap-0.5">
-              <span className="size-3 bg-[#22C55E]/60 border border-[#22C55E]" />
-              <span className="size-3 bg-[#EF4444]/60 border border-[#EF4444]" />
-              <span className="size-3 bg-[#86EFAC]/60 border border-[#16A34A]" />
-              <span className="size-3 bg-[#FCD34D]/60 border border-[#D97706]" />
-            </div>
-            <div className="absolute bottom-1.5 left-1.5 bg-white/95 rounded-full px-2.5 py-1 text-[10px] font-bold border border-[#E5E7EB]">1 km scale</div>
-          </div>
-        </div>
-      </div>
-
-      <div className="absolute right-4 top-4 z-[400] hidden lg:block pointer-events-none">
-        <div className="bg-[#111827] text-white rounded-2xl px-4 py-3 shadow-xl border border-white/10 max-w-[240px]">
-          <div className="text-[11px] font-bold flex items-center gap-1.5"><span className="size-2 rounded-full bg-[#22C55E] animate-pulse" /> Recommended Borewell — Depth 45–60 m</div>
-          <div className="text-[11px] text-white/70 leading-snug mt-1">Hover green pins & blue rings for details. Click polygons to focus advisory.</div>
         </div>
       </div>
     </div>

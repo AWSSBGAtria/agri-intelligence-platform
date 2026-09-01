@@ -23,7 +23,7 @@ export default function AdvisoryStrip({ site, selected }: { site: SiteConfig, se
           {b.signal==='Amber' && 'Watch — pre-sowing conditions emerging, but 5-day rain 10–20mm. Monitor next overpass (latency <6h).'}
           {b.signal==='Gray' && 'Normal — no threshold crossed. Continue routine monitoring. Next Sentinel-2 pass 4 AM UTC.'}
         </div>
-        <div className="text-xs text-[#6B7280] mt-1.5">Advisory 06:00 IST • Timestream daily • DynamoDB advisory_logs • Hover polygons & pins for details • తెలుగు: {b.signal==='Green'?'వేరుశనగ విత్తడానికి అనుకూలం':b.signal==='Red'?'తీవ్ర నీటి ఒత్తిడి — వెంటనే నీరు పెట్టండి':'సాధారణం'}</div>
+        <div className="text-xs text-[#6B7280] mt-1.5">Advisory 06:00 IST • Timestream daily • Hover polygons & pins for details • {site.id==='gkvk' ? `ಕನ್ನಡ: ${b.signal==='Green'?'ಬಿತ್ತನೆಗೆ ಸೂಕ್ತ ಸಮಯ — ರಾಗಿ / ಹುರುಳಿ':b.signal==='Red'?'ತೀವ್ರ ನೀರಿನ ಒತ್ತಡ — ತಕ್ಷಣ ನೀರಾವರಿ ಮಾಡಿ':'ಸಾಮಾನ್ಯ — ಕ್ರಮ ಅಗತ್ಯವಿಲ್ಲ'}` : `తెలుగు: ${b.signal==='Green'?'వేరుశనగ విత్తడానికి అనుకూలం':b.signal==='Red'?'తీవ్ర నీటి ఒత్తిడి — వెంటనే నీరు పెట్టండి':'సాధారణం'}`}</div>
       </div>
       <div className="hidden lg:flex flex-col items-end gap-1.5">
         <span className="text-[11px] font-bold text-[#6B7280]">{b.acres} ac • Block</span>

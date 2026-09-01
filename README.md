@@ -1,5 +1,5 @@
-# Chittoor Agri-Intelligence Platform
-**Project Chittoor • Atria Community Day 3 • AWS Student Builder Group**
+# Agri-Intelligence Platform
+**Atria Community Day 3 • AWS Student Builder Group**
 
 Offline-resilient, Free Tier-first geospatial platform delivering daily 6 AM block-level advisories (30-acre polygons) with borewell suitability prediction — built per `PLAN.md` + `DESIGN_reference.md`.
 
@@ -32,7 +32,8 @@ npm run preview
 ```
 
 ## Mock Data
-`src/data/mockData.ts` — 15 blocks (CHT-01..15, Gudur/Pileru/Tirupati/Chittoor), 5 existing borewells, 8 recommended, 3 blips, isohyets, NDVI heat cells, 14-day time series.
+`src/data/mockData.ts` — 15 blocks (CHT-01..15, Gudur/Pileru/Tirupati), 5 existing borewells, 8 recommended, 3 blips, isohyets, NDVI heat cells, 14-day time series.
+`src/data/gkvkMock.ts` — 10 blocks (GKVK-01..10, Yelahanka/GKVK Campus/Hebbal), 5 existing borewells, 6 recommended (42–60m), 2 blips — GKVK Campus 13.082°N 77.576°E, 930m AMSL.
 
 ## PWA
 `public/manifest.json` + `public/sw.js` (tile cache-first, precache shell). Offline tile budget <200MB verified in legend.

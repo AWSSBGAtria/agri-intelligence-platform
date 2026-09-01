@@ -1,4 +1,4 @@
-import { Bell, Settings, Search, Download, Grid3X3, Satellite, Droplets, Leaf, Crosshair } from 'lucide-react'
+import { Download, Grid3X3, Satellite, Droplets, Leaf, Crosshair } from 'lucide-react'
 import SiteSwitcher from './SiteSwitcher'
 import type { SiteId } from '../data/sites'
 
@@ -9,10 +9,9 @@ interface Props {
   toggle: (k: keyof Props['layers'])=>void
   online: boolean
   onExport: ()=>void
-  activeBlips: number
 }
 
-export default function TopBar({ site, onSiteChange, layers, toggle, online, onExport, activeBlips }: Props){
+export default function TopBar({ site, onSiteChange, layers, toggle, online, onExport }: Props){
   return (
     <header className="w-full bg-white border-b border-[#E5E7EB] sticky top-0 z-40">
       <div className="h-[36px] border-b border-[#E5E7EB] flex items-center justify-between px-4 sm:px-6">
@@ -55,19 +54,8 @@ export default function TopBar({ site, onSiteChange, layers, toggle, online, onE
         </div>
 
         <div className="flex items-center gap-2.5">
-          <div className="hidden md:flex items-center gap-2 rounded-full bg-[#F9FAFB] border border-[#E5E7EB] px-3 py-2">
-            <Search size={14} className="text-[#9CA3AF]" />
-            <input placeholder="Search block, village…" className="bg-transparent outline-none text-xs w-[190px] placeholder:text-[#9CA3AF]" />
-          </div>
           <button onClick={onExport} className="inline-flex items-center gap-1.5 rounded-full bg-[#4F46E5] hover:bg-[#4338CA] text-white px-5 py-2.5 text-xs font-bold shadow-sm transition">
             <Download size={14} /> Export Map
-          </button>
-          <button className="relative grid place-items-center size-10 rounded-full bg-white border border-[#E5E7EB] hover:bg-[#F9FAFB] transition">
-            <Bell size={16} className="text-[#111827]" />
-            {activeBlips>0 && <span className="absolute -top-1 -right-1 bg-[#EF4444] text-white text-[10px] font-bold rounded-full size-5 grid place-items-center border-2 border-white">{activeBlips}</span>}
-          </button>
-          <button className="grid place-items-center size-10 rounded-full bg-white border border-[#E5E7EB] hover:bg-[#F9FAFB] transition">
-            <Settings size={16} className="text-[#111827]" />
           </button>
           <div className="hidden sm:flex items-center gap-2.5 pl-3 border-l border-[#E5E7EB]">
             <img src="https://i.pravatar.cc/100?img=12" alt="AK" className="size-9 rounded-full object-cover border border-[#E5E7EB]" />

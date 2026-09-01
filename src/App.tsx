@@ -31,17 +31,7 @@ export default function App(){
       {/* FORM: Operate — dashboard/control-room, seed impeccable-operate-dashboard */}
       {/* FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md */}
 
-      <TopBar site={siteId} onSiteChange={setSiteId} layers={layers} toggle={toggle} online={online} onExport={onExport} activeBlips={site.blips.length} />
-
-      <div className="hidden lg:flex items-center gap-3 px-6 py-2.5 bg-[#EEF2FF] border-b border-[#C7D2FE] text-[11px]">
-        <span className="font-bold text-[#3730A3]">DATA PIPELINE</span>
-        <span className="text-[#6B7280]">S3 Open Data (Sentinel-2 L2A COGs) → STAC Element84 (cloud&lt;20%) → Lambda rasterio/SCL → Timestream → DynamoDB → SNS/AppSync → Leaflet PWA</span>
-        <span className="ml-auto hidden xl:inline-flex items-center gap-2">
-          <span className="px-2.5 py-1 rounded-full bg-white border border-[#C7D2FE] font-bold text-[#4F46E5]">ROC AUC 0.87 • RF 100 trees</span>
-          <span className="px-2.5 py-1 rounded-full bg-[#4F46E5] text-white font-bold">8-factor MCDA</span>
-          <span className="text-[#6B7280] hidden 2xl:inline">Hover any marker • {site.meta.latLon}</span>
-        </span>
-      </div>
+      <TopBar site={siteId} onSiteChange={setSiteId} layers={layers} toggle={toggle} online={online} onExport={onExport} />
 
       {/* site context bar — adds breathing room + clarity */}
       <div className="mx-4 sm:mx-6 mt-4 rounded-2xl bg-white border border-[#E5E7EB] px-4 sm:px-5 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
