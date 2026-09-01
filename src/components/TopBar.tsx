@@ -57,13 +57,6 @@ export default function TopBar({ site, onSiteChange, layers, toggle, online, onE
           <button onClick={onExport} className="inline-flex items-center gap-1.5 rounded-full bg-[#4F46E5] hover:bg-[#4338CA] text-white px-5 py-2.5 text-xs font-bold shadow-sm transition">
             <Download size={14} /> Export Map
           </button>
-          <div className="hidden sm:flex items-center gap-2.5 pl-3 border-l border-[#E5E7EB]">
-            <img src="https://i.pravatar.cc/100?img=12" alt="AK" className="size-9 rounded-full object-cover border border-[#E5E7EB]" />
-            <div className="leading-tight">
-              <div className="text-xs font-bold text-[#111827]">AK • Analyst</div>
-              <div className="text-[11px] text-[#6B7280]">Corporate • {site==='gkvk'?'UASB':'GKVK'}</div>
-            </div>
-          </div>
         </div>
       </div>
       <div className="h-px bg-[#4F46E5] w-full" />
