@@ -1,7 +1,7 @@
 {
-  "name": "Chittoor Agri-Intelligence",
+  "name": "Agri-Intelligence",
   "short_name": "Agri-Intel",
-  "description": "Offline-resilient 30-acre block advisories, NDVI/NDMI, borewell prediction for Chittoor — AWS Student Builder Group",
+  "description": "Offline-resilient 30-acre block advisories, NDVI/NDMI, borewell prediction — AWS Student Builder Group",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#111827",

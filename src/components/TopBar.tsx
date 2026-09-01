@@ -18,7 +18,7 @@ export default function TopBar({ site, onSiteChange, layers, toggle, online, onE
         <div className="flex items-center gap-3">
           <span className="text-[11px] font-extrabold tracking-[0.14em] text-[#111827]">AGRI-INTELLIGENCE</span>
           <span className="hidden lg:inline h-3 w-px bg-[#E5E7EB]" />
-          <span className="hidden lg:inline text-[11px] font-medium text-[#6B7280]">Project Chittoor • 30-acre blocks • Daily 6 AM IST</span>
+          <span className="hidden lg:inline text-[11px] font-medium text-[#6B7280]">30-acre blocks • Daily 6 AM IST</span>
           <SiteSwitcher site={site} onChange={onSiteChange} />
         </div>
         <div className="flex items-center gap-2.5">
