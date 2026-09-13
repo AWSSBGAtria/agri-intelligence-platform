@@ -13,7 +13,7 @@ interface Props {
 
 export default function TopBar({ site, onSiteChange, layers, toggle, online, onExport }: Props){
   return (
-    <header className="w-full bg-white border-b border-[#E5E7EB] sticky top-0 z-40">
+    <header className="w-full bg-white border-b border-[#E5E7EB] sticky top-0 z-[1000]">
       <div className="h-[36px] border-b border-[#E5E7EB] flex items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-3">
           <span className="text-[11px] font-extrabold tracking-[0.14em] text-[#111827]">AGRI-INTELLIGENCE</span>
@@ -31,7 +31,7 @@ export default function TopBar({ site, onSiteChange, layers, toggle, online, onE
         </div>
       </div>
 
-      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 px-4 sm:px-6 py-4">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 px-4 sm:px-6 py-3">
         <div className="flex items-center gap-3 flex-wrap">
           <div className="flex items-center gap-1 rounded-2xl bg-[#F3F4F6] p-1.5 border border-[#E5E7EB]">
             <button onClick={()=>toggle('satellite')} className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-xs font-semibold transition ${layers.satellite?'bg-[#111827] text-white shadow':'text-[#6B7280] hover:text-[#111827]'}`}>
